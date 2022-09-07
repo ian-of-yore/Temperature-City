@@ -15,18 +15,13 @@ document.getElementById("btn-city-search").addEventListener("click", function ()
 })
 
 function displayTemperature(tempData) {
-    // console.log(tempData);
+    setInnerTextbyID("city-name", tempData.name);
+    setInnerTextbyID("current-temp", tempData.main.temp);
+    setInnerTextbyID("feels-like-temp", tempData.main.feels_like);
+    setInnerTextbyID("weather-type", tempData.weather[0].description);
+}
 
-    // collecting elements by id
-    const cityName = document.getElementById("city-name");
-    const currentTemp = document.getElementById("current-temp");
-    const feelLikeTemp = document.getElementById("feels-like-temp");
-    const weatherType = document.getElementById("weather-type");
-
-    // Setting innerText of the elements
-    cityName.innerText = tempData.name;
-    currentTemp.innerText = tempData.main.temp;
-    feelLikeTemp.innerText = tempData.main.feels_like;
-    weatherType.innerText = tempData.weather[0].description;
-
+function setInnerTextbyID(id, text) {
+    const city = document.getElementById(id);
+    return city.innerText = text;
 }
